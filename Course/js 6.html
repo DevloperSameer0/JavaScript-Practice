@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array In JavaScript</title>
+</head>
+<body>
+    <script>
+        // Array In JavaScript
+
+let arr = [1,2,3,5];
+//  index  0,1,2,3
+
+arr[2] = "Sameer";
+
+console.log(arr);
+console.log(arr.length);
+console.log(arr[0]);
+console.log(arr[2]);
+console.log(arr[3]); 
+
+// Array Methods----
+
+// toString()--
+let n = [1,"Sameer" , 5, false];
+console.log(n.toString());
+
+// join()--
+console.log(n.join(" and "));
+
+// pop()--
+let pop = [1,2,3,4]
+console.log(pop.pop());
+console.log(pop);
+
+// push()--
+console.log(n.push("sammy"));
+console.log(n);
+
+// shift()--
+console.log(n.shift());
+console.log(n);
+
+// unShift()--
+console.log(n.unshift("55"));
+console.log(n);
+
+// delete--
+delete n[2];
+console.log(n);
+
+// concat()--
+let a1 = [1,2,3];
+let a2 = [4,5,6];
+let a3 = [7,8,9];
+
+console.log(a1.concat(a2,a3));
+
+// sort()--
+let sort = [25,35,15];
+console.log(sort.sort());
+
+// splice()--
+const num = [11,22,33,44,55];
+console.log(num.splice(1,3));
+console.log(num);
+
+console.log(num.splice(1,3,23,45));
+console.log(num,num.length);
+
+// reverse--
+console.log(num.reverse);
+
+
+
+// Looping through Arrays---
+
+let number = [11,22,33,44,55];
+
+for (let index = 0; index < number.length; index++) {
+    const element = number[index];
+    console.log(element);
+};
+
+// forEach Loop()--
+number.forEach((value,index,arr) => {
+    console.log(value,index,arr);
+});
+
+// forIn Lopp()--
+
+let obj = {
+    a: 1,
+    b: 2,
+    c: 3
+};
+for (const key in obj) {
+    if (Object.hasOwnProperty.call(obj, key)) {
+        const element = obj[key];
+        console.log(element);
+    }
+};
+
+// forOf Loop()--
+for (const iterator of number) {
+    console.log(iterator);
+};
+
+// map()--
+let arr1 = [1,2,3,4,5]
+newArr = arr1.map((e)=>{
+    return e*2
+});
+
+console.log(newArr);
+
+// filter()--
+
+const greater = (e)=>{
+    if(e>7){
+        return true
+    }
+     return false
+}
+
+console.log(newArr.filter(greater)); 
+
+// reduce--
+const red = (a,b)=>{
+    return a*b
+}
+console.log(newArr.reduce(red));
+    </script>
+</body>
+</html>

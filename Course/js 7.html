@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events, Event Bubbling, setInterval & setTimeout</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        #container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button{
+            background-color: transparent;
+            color: white;
+            padding: 2vw 3vw;
+            font-size: 2vw;
+            border: none;
+            
+        }
+        
+        .container1{
+            padding: 14px;
+            margin: 14px;
+
+        }
+        .childContainer{
+            padding: 14px;
+            margin: 14px;
+        }
+        .child{
+            padding: 14px;
+            margin: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Events--- -->
+    <div id="container">
+        <div class="box">
+            <button id="btn1">Click me</button>
+            <button id="btn2">Click me</button>
+        </div>
+    </div>
+
+    <!-- Events Bubbling--- -->
+    <div class="container1">
+        <div class="childContainer">
+            <div class="child">
+                hey i am child
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Events, Event Bubbling, setInterval & setTimeout
+
+        // Events---
+        let btn1 = document.getElementById("btn1");
+        let btn2 = document.getElementById("btn2");
+
+        btn2.addEventListener("dblclick", ()=>{
+            document.querySelector(".box").innerHTML ="<h1>Yayy You Were Double Clicked</h1>"
+        });
+
+        btn1.addEventListener("click", ()=>{
+            document.querySelector(".box").innerHTML ="<h1>Yayy You Were Clicked</h1>"
+        });
+
+        document.addEventListener("keypress", (e)=>{
+            console.log(e.key);
+        })
+
+        // Events Bubbling---
+
+        document.querySelector(".container1").addEventListener("click",(e)=>{
+            e.stopImmediatePropagation();
+            alert("Container was clicked");
+        });
+
+        document.querySelector(".childContainer").addEventListener("click",(e)=>{
+            e.stopImmediatePropagation();
+            alert("childContainer was clicked");
+        });
+
+        document.querySelector(".child").addEventListener("click",(e)=>{
+            e.stopImmediatePropagation();
+            alert("Child was clicked");
+        });
+
+        // setInterval && setTimeout---
+        function getRandomcolor() {
+            let val1 = Math.ceil(0 + Math.random() * 255)
+            let val2 = Math.ceil(0 + Math.random() * 255)
+            let val3 = Math.ceil(0 + Math.random() * 255)
+            return ` rgb(${val1}, ${val2}, ${val3})`
+        };
+
+        setInterval(() => {
+            document.querySelector(".child").style.background = getRandomcolor()
+            document.querySelector(".childContainer").style.background = getRandomcolor()
+            document.querySelector(".container1").style.background = getRandomcolor()
+        }, 1000);
+
+        setTimeout(() => {
+            document.querySelector(".child").style.background = getRandomcolor()
+            document.querySelector(".childContainer").style.background = getRandomcolor()
+            document.querySelector(".container1").style.background = getRandomcolor()
+        }, 5000);
+
+    </script>
+</body>
+</html>

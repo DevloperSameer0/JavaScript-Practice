@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions In JavaScript</title>
+</head>
+<body>
+    <script>
+        // Functions In JavaScript
+
+function nice(name) {
+    console.log("hello " + name + " is very goood person");
+};
+
+nice("Sameer");
+nice("Meena");
+nice("Hacker");
+
+
+function my(a, b, c=1) {
+    console.log(a + b + c)
+    return a + b + c
+};
+
+result = my(3, 5);
+result1 = my(6, 8);
+result2 = my(4, 9);
+
+console.log("Sum of this number is : ",result);
+console.log("Sum of this number is : ",result1);
+console.log("Sum of this number is : ",result2);
+
+
+const fun = (x)=>{
+    console.log("This is a arrow function :", (x));
+}
+
+fun(45)
+fun(55)
+fun(65)
+fun(45)
+    </script>
+</body>
+</html>
