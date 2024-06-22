@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulb</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5vw;
+        }
+        #bulb{
+            height: 50vw;
+            width: 50vw;
+            border: 5px solid black;
+            border-radius: 50%;
+        }
+        button{
+            background-color: black;
+            border: none;
+            padding: 2vw 5vw;
+            color: white;
+            font-size: 5vw;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bulb"></div>
+    <button>On</button>
+
+    <script>
+        let blb = document.querySelector("#bulb");
+        let btn = document.querySelector("button");
+        let cont = 0;
+
+        btn.addEventListener("click", ()=>{
+            if(cont == 0){
+                blb.style.backgroundColor = "yellow"
+                cont = 1
+            }else{
+                blb.style.backgroundColor = "transparent"
+                cont = 0
+            }
+        })
+    </script>
+</body>
+</html>
