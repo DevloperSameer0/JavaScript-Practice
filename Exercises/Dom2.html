@@ -46,9 +46,12 @@
         hero.addEventListener("dblclick", function(){
             icon.style.opacity = 1;
             icon.style.transform = 'translate(-50% , -50%) scale(1)';
+
             setTimeout(() => {
-                icon.style.transform = 'translate(-50% , -50%) scale(0)';
                 icon.style.opacity = 0;
+            }, 1000);
+            setTimeout(()=>{
+                icon.style.transform = 'translate(-50% , -50%) scale(0)';
             }, 2000);
         })
     </script>
