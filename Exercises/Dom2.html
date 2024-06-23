@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insta Like Feature</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <style>
+        body{
+            background-color: rgb(218, 255, 243);
+        }
+        #hero{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #hero img{
+            height: 400px;
+            width: 300px;
+            border-radius: 20px;
+        }
+        i{
+            font-size: 55px;
+            position: absolute;
+            left: 51%;
+            top: 51%;
+            transform: translate(-50% , -50%) scale(0);
+            color: white;
+            opacity: 0;
+            transition: all ease 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div id="hero">
+        <img src="https://images.unsplash.com/photo-1718832484653-ad667c8d5bdf?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        <i class="ri-heart-3-fill"></i>
+    </div>
+
+    <script>
+        let hero = document.querySelector("#hero");
+        let icon = document.querySelector("i");
+
+        hero.addEventListener("dblclick", function(){
+            icon.style.opacity = 1;
+            icon.style.transform = 'translate(-50% , -50%) scale(1)';
+            setTimeout(() => {
+                icon.style.transform = 'translate(-50% , -50%) scale(0)';
+                icon.style.opacity = 0;
+            }, 2000);
+        })
+    </script>
+</body>
+</html>
