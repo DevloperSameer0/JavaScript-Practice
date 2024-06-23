@@ -3,9 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cursor Effect</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        #main{
+            height: 100vh;
+            width: 100%;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        h1{
+           font-size: 8vw; 
+           text-transform: uppercase;
+           font-weight: 800;
+        }
+
+        #cursor{
+            height: 5vh;
+            width: 5vh;
+            background-color: white;
+            border-radius: 50%;
+            position: absolute;
+            transition: all ease 0.15s;
+            mix-blend-mode: difference;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="main">
+        <div id="cursor"></div>
+        <h1>Khans Mega Project</h1>
+    </div>
+
+    <script>
+        let main = document.querySelector("#main");
+        let crsr = document.querySelector("#cursor");
+
+        main.addEventListener("mousemove", (dets)=>{
+            crsr.style.left = dets.x + "px";
+            crsr.style.top = dets.y + "px";
+        })
+    </script>
 </body>
 </html>
