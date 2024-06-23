@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Follower</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        #main{
+            height: 100vh;
+            width: 100%;
+            background-color: black;
+            color: white;
+        }
+        .elem h1{
+            font-size: 6vw;
+            text-transform: uppercase;
+        }
+        .elem{
+            border-bottom: 3px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+        }
+        .elem img{
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            position: absolute;
+            opacity: 0;
+            transition: all ease 0.1s;
+            mix-blend-mode: difference;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div class="elem">
+            <h1>Openhimer</h1>
+            <img src="https://images.unsplash.com/photo-1718762002228-02170005004d?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <div class="elem">
+            <h1>Barbie</h1>
+            <img src="https://images.unsplash.com/photo-1718788577805-8f270569bbed?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <div class="elem">
+            <h1>Joe Chlones</h1>
+            <img src="https://images.unsplash.com/photo-1718812669757-affc7489da59?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <div class="elem">
+            <h1>Hackaton</h1>
+            <img src="https://images.unsplash.com/photo-1718861908544-18e7e71c58cb?q=80&w=1527&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+    </div>
+
+    <script>
+        let elem = document.querySelectorAll(".elem");
+        let img = document.querySelectorAll("img");
+
+        elem.forEach(function(val){
+            val.addEventListener("mouseenter",function(){
+                val.childNodes[3].style.opacity = 1
+            });
+            val.addEventListener("mouseleave",function(){
+                val.childNodes[3].style.opacity = 0
+            });
+
+            val.addEventListener("mousemove",function(det){
+                val.childNodes[3].style.left = det.x+"px"
+                
+            })
+            
+        })
+
+        elem.addEventListener("mousemove", function(dets){
+            img.style.left = dets.x + "px"
+            img.style.top = dets.y + "px"
+        });
+        elem.addEventListener("mouseenter", function(){
+            img.style.opacity = 1
+        });
+        elem.addEventListener("mouseleave", function(){
+            img.style.opacity = 0
+        });
+    </script>
+</body>
+</html>
