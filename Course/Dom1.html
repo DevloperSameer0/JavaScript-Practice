@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Real Life Projects</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        #first{
+            height: 100vh;
+            width: 100vw;
+            background-color: salmon;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box{
+            background-color: whitesmoke;
+            height: 350px;
+            width: 320px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .box img{
+            height: 50%;
+            width: 80%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .box h1{
+            margin: 10px 0px;
+        }
+        .box h3{
+            font-size: 25px;
+            margin-bottom: 10px;
+            color: red;
+        }
+
+        #add{
+            border: none;
+            background-color: rgb(197, 197, 197);
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        #remove{
+            border: none;
+            background-color: rgb(255, 116, 116);
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="first">
+        <div class="box">
+            <img src="https://images.unsplash.com/photo-1719032168861-994a74306944?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            <h1>Sameer Khan</h1>
+            <h3>Strangers</h3>
+            <div id="btn-container">
+                <button id="add">Add Fraands</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let cntnt = document.querySelector("h3");
+        let add = document.querySelector("#add");
+        let check = 0;
+
+        add.addEventListener("click", function(){
+            if(check == 0){
+                cntnt.innerHTML = "Fraands";
+                cntnt.style.color = "green"
+                add.innerHTML = "Remove Fraands"
+                add.style.backgroundColor = "rgb(255, 116, 116)"
+                check = 1;
+            }else{
+                cntnt.innerHTML = "Stranger";
+                cntnt.style.color = "red";
+                add.innerHTML = "Add Fraands"
+                add.style.backgroundColor = "rgb(197, 197, 197)"
+                check = 0;
+            }
+        });  
+    </script>
+</body>
+</html>
